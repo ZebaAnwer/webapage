@@ -1,2 +1,0 @@
-var font_family="Lato",font_family_title="Montserrat";font_family_title="Montseratt",WebFontConfig={google:{families:[font_family+":400,400i,700",font_family_title+":400,700,900"]}},function(){var wf=document.createElement("script");wf.src=(document.location.protocol=="https:"?"https":"http")+"://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js",wf.type="text/javascript",wf.async="true";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(wf,s)}();
-//# sourceMappingURL=/cdn/shop/t/2/assets/fonts.js.map?v=118293695852518200331553713331
