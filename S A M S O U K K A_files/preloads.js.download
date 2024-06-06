@@ -1,0 +1,72 @@
+
+    (function() {
+      var baseURL = "https://cdn.shopify.com/shopifycloud/checkout-web/assets/";
+      var scripts = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/runtime.latest.en.5f2d085f23520e623cb2.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/8737.latest.en.0364483cba706d519a4a.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/4109.latest.en.0218a052e976e7974c26.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/4085.latest.en.2054d9523065f6d4bb10.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.62e7245c29eb99807fa7.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/2542.latest.en.e8b98a9ed829efc0c730.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/8070.latest.en.8ff27283522475e94436.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/2080.latest.en.5117e670600bcaf49bb5.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/513.latest.en.95cae5803200a466838d.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/9719.latest.en.0f918014429a7e9fb5bd.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/5137.latest.en.ce73052887760b1cce4f.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/2594.latest.en.e78374d287cb043131f7.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/2872.latest.en.2abfdc80477347ac4630.js","https://cdn.shopify.com/shopifycloud/checkout-web/assets/OnePage.latest.en.934a4eaa053bc7c2de1b.js"];
+      var styles = ["https://cdn.shopify.com/shopifycloud/checkout-web/assets/8737.latest.en.169892172732d59a777d.css","https://cdn.shopify.com/shopifycloud/checkout-web/assets/app.latest.en.71184ade77e999e513cd.css","https://cdn.shopify.com/shopifycloud/checkout-web/assets/6268.latest.en.14532e2108b477e5b681.css"];
+      var fontPreconnectUrls = [];
+      var fontPrefetchUrls = [];
+      var imgPrefetchUrls = ["https://cdn.shopify.com/s/files/1/0685/1798/6530/files/Logo_0948e5dd-c584-4641-9712-6d71d310ca93_x320.png?v=1706935980"];
+
+      function preconnect(url, callback) {
+        var link = document.createElement('link');
+        link.rel = 'dns-prefetch preconnect';
+        link.href = url;
+        link.crossOrigin = '';
+        link.onload = link.onerror = callback;
+        document.head.appendChild(link);
+      }
+
+      function preconnectAssets() {
+        var resources = [baseURL].concat(fontPreconnectUrls);
+        var index = 0;
+        (function next() {
+          var res = resources[index++];
+          if (res) preconnect(res[0], next);
+        })();
+      }
+
+      function prefetch(url, as, callback) {
+        var link = document.createElement('link');
+        if (link.relList.supports('prefetch')) {
+          link.rel = 'prefetch';
+          link.fetchPriority = 'low';
+          link.as = as;
+          if (as === 'font') link.type = 'font/woff2';
+          link.href = url;
+          link.crossOrigin = '';
+          link.onload = link.onerror = callback;
+          document.head.appendChild(link);
+        } else {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.onloadend = callback;
+          xhr.send();
+        }
+      }
+
+      function prefetchAssets() {
+        var resources = [].concat(
+          scripts.map(function(url) { return [url, 'script']; }),
+          styles.map(function(url) { return [url, 'style']; }),
+          fontPrefetchUrls.map(function(url) { return [url, 'font']; }),
+          imgPrefetchUrls.map(function(url) { return [url, 'image']; })
+        );
+        var index = 0;
+        (function next() {
+          var res = resources[index++];
+          if (res) prefetch(res[0], res[1], next);
+        })();
+      }
+
+      function onLoaded() {
+        preconnectAssets();
+        prefetchAssets();
+      }
+
+      if (document.readyState === 'complete') {
+        onLoaded();
+      } else {
+        addEventListener('load', onLoaded);
+      }
+    })();
+  

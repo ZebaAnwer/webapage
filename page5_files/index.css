@@ -1,0 +1,191 @@
+#bundle-recent_sales {
+    height: 80px;
+    display: none;
+    left: 2%;
+    padding: 0;
+    position: fixed;
+    text-align: left;
+    z-index: 1999999997;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0;
+    font-size: 14px;
+    line-height: 1.1;
+    font-weight: 400;
+    width: 100%;
+    overflow: visible !important;
+    box-sizing: border-box;
+}
+
+.bundle-recent_sales-person {
+    line-height: 1.1;
+    max-width: 300px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    letter-spacing: -0.2px;
+}
+
+.recent-sales-info {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bundle-recent_sales-link {
+    max-width: 250px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    line-height: 1.2;
+}
+
+
+#bundle-recent_sales-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    margin-right: 3px;
+    margin-top: 3px;
+    z-index:2;
+}
+
+#bundle-recent_sales-time_ago {
+    text-align: right;
+    font-size: 9px;
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 4px;
+    border-radius: 50px;
+}
+
+.bundle-fade-in {
+    animation-name: nbFadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+
+.bundle-fade-out {
+    animation-name: nbFadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+
+.basic-display {
+    display: flex;
+}
+
+.recent-sales-product {
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    display: flex !important;
+    vertical-align: middle;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.recent-sales-product .recent-sales-product-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+}
+
+.recent-sales-product-image img {
+    max-width: 100%;
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    min-height: 100%;
+}
+
+.recent-sales-content {
+    padding: 10px;
+    position: relative;
+    height: 80px;
+    width: calc(100% - 80px);
+    display: flex;
+    box-sizing: border-box;
+}
+
+.recent-sales-content p {
+    margin: 0;
+}
+
+.recent-sales-content a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.bundle-recent-sales-illustration {
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    z-index: 0;
+}
+
+@media (max-width: 355px) {
+    .bundle-recent-sales-illustration {
+        display: none;
+    }
+}
+
+
+@media (max-width: 470px) {
+    #bundle-recent_sales {
+        width: 95% !important;
+        left: -4% !important;
+        margin: 10px 2% !important;
+    }
+
+    #bundle-recent_sales.bundle-fade-in {
+        left: 0 !important;
+    }
+
+    .bundle-recent_sales-link {
+        max-width: 180px !important;
+    }
+
+    .bundle-recent_sales-person {
+        font-size: 10px !important;
+    }
+}
+
+.verifiedby-vitals {
+    margin-left: 10px;
+}
+
+.verifiedby-badge {
+    display: flex;
+}
+
+.recent-sales-info > div:nth-child(2) {
+    display: flex;
+}
+
+.vitals-recent-sales-row {
+    display: flex;
+    align-items: center;
+}
+
+.verifiedby-icon {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+}

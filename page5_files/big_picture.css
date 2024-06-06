@@ -1,0 +1,23 @@
+.recent-sales-product {
+    height: 100px !important;
+    width: 100px !important;
+    border-radius: 5px !important;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.basic-display {
+    align-items: center;
+}
+
+.recent-sales-content {
+    margin-left: 0 !important;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+    width: calc(100% - 100px) !important;
+}
+
+@media (max-width: 400px) {
+    div.recent-sales-product {
+        height: 90px !important;
+        width: 90px !important;
+    }
+}
